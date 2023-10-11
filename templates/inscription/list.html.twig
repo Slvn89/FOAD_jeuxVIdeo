@@ -1,0 +1,34 @@
+{# templates/inscription/liste.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Inscrits{% endblock %}
+
+{% block body %}
+{% include 'navbar.html.twig' %}
+
+    <h1>Liste des Inscrits</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom du Joueur</th>
+                <th>Pseudonyme</th>
+                <th>Date de Naissance</th>
+                <th>Email</th>
+                <th>Avatar</th>
+            </tr>
+        </thead>
+        <tbody>
+           {% for joueur in joueurs %}
+    <tr>
+        <td>{{ joueur.getNomJoueur() }}</td>
+        <td>{{ joueur.getPseudonyme() }}</td>
+        <td>{{ joueur.getDateNaissance()|date('Y-m-d') }}</td>
+        <td>{{ joueur.getEmail() }}</td>
+        <td>{{ joueur.getAvatar() }}</td>
+    </tr>
+{% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{# templates/inscription/formulaire.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Formulaire d'Inscription{% endblock %}
+
+{% block body %}
+{% include 'navbar.html.twig' %}
+
+
+    <h1>Formulaire d'Inscription</h1>
+
+    {{ form_start(formulaire) }}
+    {{ form_row(formulaire.nom_joueur) }}
+    {{ form_row(formulaire.pseudonyme) }}
+    {{ form_row(formulaire.date_naissance) }}
+    {{ form_row(formulaire.email) }}
+    {{ form_row(formulaire.avatar) }}
+    {{ form_row(formulaire.password) }}
+    <button type="submit" class="btn btn-primary">S'inscrire</button>
+    {{ form_end(formulaire) }}
+{% endblock %}

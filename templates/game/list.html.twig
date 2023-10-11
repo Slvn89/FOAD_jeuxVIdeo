@@ -1,0 +1,43 @@
+{# templates/game/list.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Jeux Vidéo{% endblock %}
+
+{% block body %}
+{% include 'navbar.html.twig' %}
+    <div class="container">
+        <h1>Liste des Jeux Vidéo</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Genre</th>
+                    <th>Date de Sortie</th>
+                    <th>Description</th>
+                    <th>Note Moyenne</th>
+                    <th>Image</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in games %}
+                    <tr>
+                        <td>{{ game.getNomJeu() }}</td>
+                        <td>{{ game.getGenre() }}</td>
+                        <td>{{ game.getDateSortie()|date('Y-m-d') }}</td>
+                        <td>{{ game.getDescription() }}</td>
+                        <td>{{ game.getNoteMoyenne() }}</td>
+                        <td>{{ game.getImage() }}</td>
+                        <td>{{ game.isType() ? 'Vente' : 'Location' }}</td>
+                        <td>
+                            <a href="{{ path('edit_game', {'id': game.id}) }}" class="btn btn-primary">Modifier</a>
+                            <a href="{{ path('choose_game', {'id': game.id}) }}" class="btn btn-success">Choisir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -3,3 +3,49 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+homepage:
+    path: /
+    controller: App\Controller\HomepageController::index
+    methods: GET
+
+  
+
+game_list:
+    path: '/games'
+    controller: App\Controller\GameController::listGames
+    methods: GET
+
+    # config/routes.yaml
+
+
+edit_game:
+    path: '/games/edit/{id}'
+    controller: App\Controller\GameController::edit
+    methods: GET
+
+choose_game:
+    path: '/games/choose/{id}'
+    controller: App\Controller\GameController::choose
+    methods: GET
+
+fake_data:
+    path: '/fake-data'
+    controller: App\Controller\GameController::generateFakeData
+    methods: GET
+
+
+inscription:
+    path: /inscription
+    controller: App\Controller\InscriptionController::formulaireInscription
+
+inscription_form:
+    path: /inscription/formulaire
+    controller: App\Controller\InscriptionController::formulaireInscription
+    methods: ['GET', 'POST']
+
+
+
+inscription_liste:
+    path: /liste-des-joueurs
+    controller: App\Controller\InscriptionController::listeInscrits
